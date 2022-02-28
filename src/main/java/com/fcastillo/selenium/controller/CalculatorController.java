@@ -45,6 +45,7 @@ public class CalculatorController implements Serializable{
   }
 
   public void sumar() {
-    result = numero1 + numero2;
+    int resultado = getNumero1() + getNumero2();
+    setResult(result);
   }
 }
