@@ -1,9 +1,11 @@
 
 import com.fcastillo.selenium.controller.CalculatorController;
-import javax.inject.Inject;
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.MockitoJUnitRunner;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,20 +16,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  *
  * @author fcastillo
  */
+@RunWith(MockitoJUnitRunner.class)
 public class CalculatorTest {
 
-  private CalculatorController calculatorController;
-
-  @Before
-  public void setValues() {
-    calculatorController = new CalculatorController();
-     calculatorController.setNumero1(1);
-    calculatorController.setNumero2(2);
-  }
+  @InjectMocks
+  CalculatorController calculatorController = new CalculatorController();
 
   @Test
-  public void testA() {
-    calculatorController.sumar();
-    assertEquals(1, 1);
+  @DisplayName("Test Suma")
+  public void testSuma() {
+    assertEquals(3, calculatorController.sumar(1, 2), 0);
   }
 }

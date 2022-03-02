@@ -6,46 +6,18 @@
 package com.fcastillo.selenium.controller;
 
 import java.io.Serializable;
-import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
 /**
  *
  * @author fcastillo
  */
 @Named(value = "calculatorController")
-@SessionScoped
-public class CalculatorController implements Serializable{
+@RequestScoped
+public class CalculatorController implements Serializable {
 
-  private int numero1, numero2, result;
-
-  public int getNumero1() {
-    return numero1;
-  }
-
-  public void setNumero1(int numero1) {
-    this.numero1 = numero1;
-  }
-
-  public int getNumero2() {
-    return numero2;
-  }
-
-  public void setNumero2(int numero2) {
-    this.numero2 = numero2;
-  }
-
-  public int getResult() {
-    return result;
-  }
-
-  public void setResult(int result) {
-    this.result = result;
-  }
-
-  public void sumar() {
-    int resultado = getNumero1() + getNumero2();
-    setResult(result);
+  public int sumar(int numero1, int numero2) {
+    return numero1 + numero2;
   }
 }
